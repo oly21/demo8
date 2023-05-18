@@ -28,8 +28,9 @@
 <h2><%= message %>
 </h2>
 <form action="QuizServlet" method="post">
-    <input type="hidden" name="restart" value="true">
-    <input type="submit" value="Начать заново">
+    <input type="radio" name="option" value="3"> Начать заново<br>
+    <input type="radio" name="option" value="4"> Начать другой квест<br>
+    <input type="submit" value="Далее">
 </form>
 <%
 } else {

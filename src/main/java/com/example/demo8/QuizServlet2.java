@@ -18,7 +18,6 @@ public class QuizServlet2 extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String restart = request.getParameter("restart");
         String question = request.getParameter("question");
         String selectedOption = request.getParameter("option");
         int questionNumber = 1;
@@ -33,7 +32,6 @@ public class QuizServlet2 extends HttpServlet {
 
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Эй ты собераешься учиться?!");
                     request.getRequestDispatcher("welcome2.jsp").forward(request, response);
 
@@ -45,7 +43,6 @@ public class QuizServlet2 extends HttpServlet {
                     request.getRequestDispatcher("welcome2.jsp").forward(request, response);
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Эй ты собераешься учиться?!");
                     request.getRequestDispatcher("welcome2.jsp").forward(request, response);
                 }
@@ -56,7 +53,6 @@ public class QuizServlet2 extends HttpServlet {
                     request.getRequestDispatcher("welcome2.jsp").forward(request, response);
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Эй ты собераешься учиться?!");
                     request.getRequestDispatcher("welcome2.jsp").forward(request, response);
 
@@ -69,13 +65,52 @@ public class QuizServlet2 extends HttpServlet {
                 out.println("<h2>Ты станешь программистом!. Победа!</h2>");
             }
         }
-        if (isSecondOptionSelected || restart != null && restart.equals("true")) {
 
+
+
+
+        if (  selectedOption != null && selectedOption.equals("3")) {
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
+
+
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
+            response.sendRedirect("welcome2.jsp");
+
+        } else if (selectedOption != null && selectedOption.equals("4")) {
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
+
+
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
+            response.sendRedirect("index.jsp");
+
+
+        }
+        if (isSecondOptionSelected) {
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
+
+
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
             response.sendRedirect("index.jsp");
 
         }
-
-
     }
 }
 

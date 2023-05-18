@@ -37,11 +37,6 @@ public class StartQuizServlet extends HttpServlet {
         Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
 
 
-        if (gamesPlayed == null) {
-            gamesPlayed = 1;
-        } else {
-            gamesPlayed++;
-        }
 
 // Сохранение обновленного значения в атрибуте сессии
         session.setAttribute("gamesPlayed", gamesPlayed);

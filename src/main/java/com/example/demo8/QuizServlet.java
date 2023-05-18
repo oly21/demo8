@@ -16,7 +16,6 @@ public class QuizServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String restart = request.getParameter("restart");
         String question = request.getParameter("question");
         String selectedOption = request.getParameter("option");
         int questionNumber = 1;
@@ -31,7 +30,6 @@ public class QuizServlet extends HttpServlet {
 
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Вы проиграли. Начните заново!");
                     request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
@@ -43,7 +41,6 @@ public class QuizServlet extends HttpServlet {
                     request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Вы проиграли. Начните заново!");
                     request.getRequestDispatcher("welcome.jsp").forward(request, response);
                 }
@@ -54,7 +51,6 @@ public class QuizServlet extends HttpServlet {
                     request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
                 } else {
-                    isSecondOptionSelected = true;
                     request.setAttribute("message", "Вы проиграли. Начните заново!");
                     request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
@@ -67,12 +63,40 @@ public class QuizServlet extends HttpServlet {
                 out.println("<h2>Тебя вернули домой. Победа!</h2>");
             }
         }
-        if (isSecondOptionSelected || restart != null && restart.equals("true")) {
+        if (selectedOption != null && selectedOption.equals("3")) {
 
+            response.sendRedirect("welcome.jsp");
+
+
+        }  if (selectedOption != null && selectedOption.equals("4")) {
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
+
+
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
             response.sendRedirect("index.jsp");
 
         }
+        if (isSecondOptionSelected) {
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
 
 
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
+            response.sendRedirect("index.jsp");
+
+        }
     }
+
+
 }

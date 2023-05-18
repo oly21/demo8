@@ -28,8 +28,10 @@
 <h2><%= message %>
 </h2>
 <form action="QuizServlet2" method="post">
-    <input type="hidden" name="restart" value="true">
-    <input type="submit" value="Начать заново">
+    <input type="radio" name="option" value="3"> Начать заново<br>
+    <input type="radio" name="option" value="4"> Начать другой квест<br>
+    <input type="submit" value="Далее">
+
 </form>
 <%
 } else {
@@ -70,6 +72,7 @@
 
 
 <div class="statistic">
+
     <p>Имя игрока: <%= session.getAttribute("username") %>
     </p>
     <p>Количество сыгранных игр: <%= session.getAttribute("gamesPlayed") %>
