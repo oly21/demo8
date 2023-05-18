@@ -9,7 +9,7 @@
 <h1>Welcome, <%= session.getAttribute("username") %>!</h1>
 <h1>Text Adventure Quiz</h1>
 
-<%-- Question 1 --%>
+
 
 <%
     int questionNumber = 0;
@@ -68,7 +68,7 @@
     }
 </style>
 
-<!-- Вывод статистики в рамке -->
+
 <div class="statistic">
     <p>Имя игрока: <%= session.getAttribute("username") %>
     </p>

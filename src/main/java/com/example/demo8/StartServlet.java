@@ -34,11 +34,11 @@ public class StartServlet extends HttpServlet {
         session.setAttribute("username", username);
         Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
 
-// Увеличение количества сыгранных игр
+
         if (gamesPlayed == null) {
-            gamesPlayed = 1; // Если атрибут не существует, устанавливаем значение 1
+            gamesPlayed = 1;
         } else {
-            gamesPlayed++; // Иначе увеличиваем значение на 1
+            gamesPlayed++;
         }
 
 // Сохранение обновленного значения в атрибуте сессии
