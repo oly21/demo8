@@ -64,7 +64,14 @@ public class QuizServlet extends HttpServlet {
             }
         }
         if (selectedOption != null && selectedOption.equals("3")) {
-
+            HttpSession session = request.getSession();
+            Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
+            if (gamesPlayed == null) {
+                gamesPlayed = 1;
+            } else {
+                gamesPlayed++;
+            }
+            session.setAttribute("gamesPlayed", gamesPlayed);
             response.sendRedirect("welcome.jsp");
 
 
