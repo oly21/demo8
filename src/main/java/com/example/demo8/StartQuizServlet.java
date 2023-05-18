@@ -10,7 +10,7 @@ public class StartQuizServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Before starting the game you need to enter your name";
+        message = "Before starting the game you need to enter your name and   number of Quiz ";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,6 +22,7 @@ public class StartQuizServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("<form method = 'post'>");
         out.println("<input type = 'text' name = 'username'>");
+        out.println("<input type = 'text' name = 'StartQuiz'>");
         out.println("<input type = 'submit' value = 'start game'>");
         out.println("</form");
         out.println("</body></html>");
@@ -30,6 +31,7 @@ public class StartQuizServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
+        String numberQuiz = request.getParameter("StartQuiz");
         HttpSession session = request.getSession();
         session.setAttribute("username", username);
         Integer gamesPlayed = (Integer) session.getAttribute("gamesPlayed");
@@ -43,6 +45,11 @@ public class StartQuizServlet extends HttpServlet {
 
 // Сохранение обновленного значения в атрибуте сессии
         session.setAttribute("gamesPlayed", gamesPlayed);
-        response.sendRedirect("welcome.jsp");
+       if (numberQuiz.equals("1")){
+           response.sendRedirect("welcome.jsp");
+       }
+        else if (numberQuiz.equals("2")){
+            response.sendRedirect("welcome2.jsp");
+        }
     }
 }
