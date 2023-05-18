@@ -27,6 +27,7 @@ public class StartServlet extends HttpServlet {
         out.println("</body></html>");
 
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         HttpSession session = request.getSession();
@@ -44,4 +45,4 @@ public class StartServlet extends HttpServlet {
         session.setAttribute("gamesPlayed", gamesPlayed);
         response.sendRedirect("welcome.jsp");
     }
-    }
+}

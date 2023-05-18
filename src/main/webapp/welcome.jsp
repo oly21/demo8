@@ -25,7 +25,8 @@
     String message = (String) request.getAttribute("message");
     if (message != null) {
 %>
-<h2><%= message %></h2>
+<h2><%= message %>
+</h2>
 <form action="QuizServlet" method="post">
     <input type="hidden" name="restart" value="true">
     <input type="submit" value="Начать заново">
@@ -60,9 +61,6 @@
 %>
 
 
-
-
-
 <style>
     .statistic {
         border: 1px solid black;
@@ -72,8 +70,10 @@
 
 <!-- Вывод статистики в рамке -->
 <div class="statistic">
-    <p>Имя игрока: <%= session.getAttribute("username") %></p>
-    <p>Количество сыгранных игр: <%= session.getAttribute("gamesPlayed") %></p>
+    <p>Имя игрока: <%= session.getAttribute("username") %>
+    </p>
+    <p>Количество сыгранных игр: <%= session.getAttribute("gamesPlayed") %>
+    </p>
 </div>
 </body>
 </html>
