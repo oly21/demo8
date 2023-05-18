@@ -8,6 +8,8 @@
 <h1><%= "Hello" %>
 </h1>
 <br/>
-<a href="start-servlet">Start game</a>
+<a href="StartQuizServlet">StartQuizServlet</a>
+<a href="StartQuizServlet2">StartQuizServlet2</a>
+
 </body>
 </html>

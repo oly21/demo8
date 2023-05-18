@@ -1,4 +1,4 @@
-import com.example.demo8.StartServlet;
+import com.example.demo8.StartQuizServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -22,12 +22,12 @@ class StartServletTest {
     @Mock
     HttpSession session;
 
-    StartServlet startServlet;
+    StartQuizServlet startServlet;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        startServlet = new StartServlet();
+        startServlet = new StartQuizServlet();
     }
 
     @Test

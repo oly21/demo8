@@ -5,8 +5,8 @@ import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "startServlet", value = "/start-servlet")
-public class StartServlet extends HttpServlet {
+@WebServlet(name = "StartQuizServlet2", value = "/StartQuizServlet2")
+public class StartQuizServlet2 extends HttpServlet {
     private String message;
 
     public void init() {
@@ -43,6 +43,6 @@ public class StartServlet extends HttpServlet {
 
 // Сохранение обновленного значения в атрибуте сессии
         session.setAttribute("gamesPlayed", gamesPlayed);
-        response.sendRedirect("welcome.jsp");
+        response.sendRedirect("welcome2.jsp");
     }
 }
