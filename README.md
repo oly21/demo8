@@ -9,7 +9,8 @@ The project consists of the following servlet classes:
 - `QuizServlet`: Handles the quiz logic for the first quiz.
 - `QuizServlet2`: Handles the quiz logic for the second quiz.
 - `StartQuizServlet`: Handles the starting point of the quiz by taking the user's name and quiz number.
-   Also the project consists of the following jsp pages index.jsp - starting 
+   Also the project consists of the following jsp pages
+- `index.jsp` - starting  
 - `welcome.jsp`- Handles the quiz logic for the first quiz. contains information for the first quiz.
 - `welcome2.jsp` - Handles the quiz logic for the second quiz. contains information  for the second quiz
 -JUNIT tests ` QuizServletTest`, `StartServletTest`
