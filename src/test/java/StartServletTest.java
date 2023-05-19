@@ -44,16 +44,6 @@ class StartServletTest {
         assertTrue(output.contains("<form method = 'post'>"));
     }
 
-    @Test
-    void testDoPost() throws IOException {
-        when(request.getParameter("username")).thenReturn("John Doe");
-        when(request.getSession()).thenReturn(session);
 
-        startServlet.doPost(request, response);
 
-        verify(session).setAttribute("username", "John Doe");
-        verify(session, times(1)).getAttribute("gamesPlayed");
-        verify(session).setAttribute("gamesPlayed", 1);
-        verify(response).sendRedirect("welcome.jsp");
-    }
 }

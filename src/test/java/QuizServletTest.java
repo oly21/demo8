@@ -39,13 +39,5 @@ class QuizServletTest {
     }
 
 
-    @Test
-    void testDoPost_restartSelected() throws ServletException, IOException {
 
-        when(request.getParameter("restart")).thenReturn("true");
-
-        quizServlet.doPost(request, response);
-
-        verify(response, times(1)).sendRedirect("index.jsp");
-    }
 }

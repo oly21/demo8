@@ -40,11 +40,16 @@ public class StartQuizServlet extends HttpServlet {
 
 // Сохранение обновленного значения в атрибуте сессии
         session.setAttribute("gamesPlayed", gamesPlayed);
-       if (numberQuiz.equals("1")){
-           response.sendRedirect("welcome.jsp");
-       }
-        else if (numberQuiz.equals("2")){
-            response.sendRedirect("welcome2.jsp");
+
+        if (numberQuiz != null) {
+            if (numberQuiz.equals("1")) {
+                response.sendRedirect("welcome.jsp");
+            } else if (numberQuiz.equals("2")) {
+                response.sendRedirect("welcome2.jsp");
+            }
+        } else {
+            response.sendRedirect("index.jsp");
         }
+
     }
 }
