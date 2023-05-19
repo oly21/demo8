@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 1. Install a servlet container such as Apache Tomcat.
 2. Deploy the application by placing the WAR file in the servlet container's `webapps` directory.
 3. Start the servlet container.
-4. Access the application using the specified URL.
+
 
 
 The program starts with the  users name and number of the quest, 
